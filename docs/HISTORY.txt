@@ -1,6 +1,11 @@
 Changelog for collective.contacts
 =================================
 
+1.5.3 (unreleased)
+------------------
+
+  * Fix for unicode error in creation of Person object [mircoangelini]
+
 1.5.2 (2012-06-09)
 ------------------
 
@@ -20,10 +25,10 @@ Changelog for collective.contacts
 
   * Added arrows indicating the current sort column [simu]
 
-  * Fixed _compute_title to return unicode (PlacelessTranslationService 
+  * Fixed _compute_title to return unicode (PlacelessTranslationService
     raised UnicodeDecodeError when using non ascii characters) [simu]
 
-  * Removed no longer needed upgrade step (columns are now handled by 
+  * Removed no longer needed upgrade step (columns are now handled by
     the ICustomizableColumns adapters) [simu]
 
   * Added transparent error handling and CSV format check for import [simu]
@@ -32,21 +37,21 @@ Changelog for collective.contacts
     messages [simu]
 
   * Added vCard and vCal export [simu]
-  
+
   * Added pluggable import and export functionality [simu]
-  
+
   * Added sorting functionality [simu]
-  
+
   * Added catalog indexes for several fields [simu]
-  
+
   * Advanced search now uses zope.formlib [simu]
 
-  * made organizations and groups folderish and allowed groups to be 
+  * made organizations and groups folderish and allowed groups to be
     added into them to support a hirarchical grouping
     (further refactoring of the search adapters was required) [simu]
-  
+
   * Added translations for views [simu]
-  
+
   * Added icons for content types [simu]
 
   * Added correct ATFieldProperties corresponding to the field names,
@@ -56,7 +61,7 @@ Changelog for collective.contacts
   * Fixed the import doctest [simu]
 
   * Added birth date field to persons [simu]
-  
+
   * Refactored everything using component architecture [simu]
 
   * Added German translation [simu]
@@ -64,13 +69,13 @@ Changelog for collective.contacts
   * Added French translation [toutpt]
 
   * Updated italian transaltion [keul]
-  
+
   * pyflakes cleanup [keul]
-  
+
   * removed import of json, unused and that brake Plone 3 compatibility [keul]
-  
+
   * fixed ``find`` browser view, duplicated methods name [keul]
-  
+
   * fixed import errors on Plone 4.1 [keul]
 
 1.4.4
@@ -79,7 +84,7 @@ Changelog for collective.contacts
   * Removed the "default-skin" from the uninstall profile
     for skins (Fix: #4) [frapell]
 
-  * Fixed a crash when entering the advanced search 
+  * Fixed a crash when entering the advanced search
     (Fix: #7) [frapell]
 
   * Added css rule so subsectors wouldn't get smashed down when

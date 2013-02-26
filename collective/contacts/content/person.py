@@ -7,7 +7,6 @@ from zope.interface import implements
 
 from Products.CMFCore import permissions
 from Products.CMFPlone.CatalogTool import sortable_title
-from Products.CMFPlone.utils import safe_unicode
 from Products.Archetypes import atapi
 from Products.Archetypes.Widget import TypesWidget
 from Products.Archetypes.Registry import registerWidget, registerField
@@ -25,7 +24,7 @@ from collective.contacts.content import DeprecatedATFieldProperty
 
 class DateField(atapi.StringField):
     security  = ClassSecurityInfo()
-    
+
     def _split(self, instance, **kwargs):
         try:
             value = self.getStorage(instance).get(self.getName(), instance, **kwargs).split('/')
@@ -74,11 +73,11 @@ class DateWidget(TypesWidget):
         # stick it back in request.form
         form[fname] = value
         return value, {}
-    
+
 @indexer(IPerson)
 def organization(obj):
     return obj.organization.UID()
-    
+
 @indexer(IPerson)
 def sortable_organization(obj):
     return sortable_title(obj.organization)
@@ -332,7 +331,7 @@ PersonSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         required=False,
         searchable=1,
     ),
-    
+
     atapi.StringField(
         'zip',
         storage=atapi.AnnotationStorage(),
@@ -457,7 +456,7 @@ class Person(base.ATCTContent):
     email = atapi.ATFieldProperty('email')
     web = atapi.ATFieldProperty('web')
     text = atapi.ATFieldProperty('text')
-    
+
     # deprecated properties
     short_name = DeprecatedATFieldProperty('shortName', 'short_name')
     last_name = DeprecatedATFieldProperty('lastName', 'last_name')
@@ -468,7 +467,7 @@ class Person(base.ATCTContent):
     work_email2 = DeprecatedATFieldProperty('workEmail2', 'work_email2')
     work_email3 = DeprecatedATFieldProperty('workEmail3', 'work_email3')
     mobile_phone = DeprecatedATFieldProperty('mobilePhone', 'mobile_phone')
-    
+
     def _compute_title(self):
         """Compute title from last and first name"""
         names = []
@@ -476,7 +475,7 @@ class Person(base.ATCTContent):
             names.append(self.lastName)
         if self.firstName:
             names.append(self.firstName)
-        return safe_unicode(', '.join(names))
+        return ', '.join(names)
 
     def tag(self, **kwargs):
         """Generate image tag using the api of the ImageField
