@@ -5,6 +5,8 @@ Changelog for collective.contacts
 ------------------
 
   * Fix for unicode error in creation of Person object [mircoangelini]
+  * Removed the 'restrict_browsing_to_startup_directory' from setting of "Organization" field into AT Person. In this way you can select an Organization also in creation of new Person.
+    [mircoangelini]
 
 1.5.2 (2012-06-09)
 ------------------

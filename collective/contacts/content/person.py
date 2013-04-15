@@ -153,7 +153,6 @@ PersonSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label=_(u"Organization"),
             description=_(u"The organization the person belongs to"),
             allow_browse = True,
-            restrict_browsing_to_startup_directory=True,
         ),
         searchable=1,
         relationship='person_organization',
