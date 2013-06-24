@@ -1,7 +1,7 @@
 Changelog for collective.contacts
 =================================
 
-1.5.3 (unreleased)
+1.5.3 (2013-06-24)
 ------------------
 
   * Fix for unicode error in creation of Person object [mircoangelini]
